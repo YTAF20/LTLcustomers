@@ -51,6 +51,136 @@ const raw = [
   ["Afghan Awasana", "Afghan", "Bay Area", 72, 18, 60, "Very weak digital, decent performance — solid target"],
   ["Mom's Biryani", "Pakistani", "Bay Area", 72, 28, 68, "Loyal following, weak social — good opportunity"],
   ["Bismillah", "Pakistani/Indian", "Fremont", 82, 22, 64, "Fremont-based, nearly no web/social — strong candidate"],
+
+  // PERSIAN
+  ["Chelokababi", "Persian", "Sunnyvale", 93, 72, 88, "Sunnyvale Persian institution since 1979, 1400+ Yelp reviews — moderate social presence, limited gap for us"],
+  ["Isfahan Kabob", "Persian/Halal", "San Jose / Sunnyvale", 95, 35, 70, "Halal-certified family business since 2004, SJ + Sunnyvale locations, almost no social media — strong digital opportunity"],
+  ["Shalizaar", "Persian", "Belmont", 45, 58, 80, "Peninsula fine Persian dining, 1369 Yelp reviews, has website — moderate proximity limits score"],
+
+  // TURKISH
+  ["Mangal Turkish BBQ", "Turkish", "Sunnyvale", 93, 60, 72, "Sunnyvale Turkish BBQ, 553 Yelp reviews, has website and IG — some digital presence but room to help"],
+  ["Lokma", "Turkish/Mediterranean", "San Francisco", 22, 65, 72, "SF Turkish fine dining since 2018, 990 reviews — strong web, but SF-only kills proximity"],
+  ["Troya", "Turkish/Mediterranean", "San Francisco", 22, 62, 72, "SF Pacific Heights Turkish since 2006, 822 reviews — well-established, SF-only limits priority"],
+  ["Anatolian Table", "Turkish", "San Francisco", 22, 52, 52, "SF Mission Turkish, 140 reviews, Infatuation-reviewed — newer, limited reviews, SF location"],
+  ["Tuba Turkish", "Turkish/Mediterranean", "San Francisco / San Jose", 22, 45, 62, "SF/SJ Turkish halal with multiple locations — moderate digital, SF-based hurts score"],
+  ["Pasha Mediterranean", "Turkish/Mediterranean", "SF / Redwood City", 30, 50, 60, "SF/Redwood City halal Mediterranean hookah lounge — multiple locations, moderate digital presence"],
+
+  // MOROCCAN
+  ["El Mansour", "Moroccan", "San Francisco", 18, 62, 72, "SF Moroccan institution since 1975 in Richmond District, 864 reviews, has website — deep SF location limits priority"],
+  ["Barcha", "Moroccan/Mediterranean", "San Francisco", 22, 65, 72, "SF Financial District Moroccan-Med, 914 reviews, active IG @barchasf — great restaurant, SF-only limits us"],
+
+  // AFGHAN
+  ["Kamdesh", "Afghan", "Oakland", 62, 62, 80, "Oakland Afghan institution 12+ years, 982 Yelp reviews, has website — East Bay location reduces proximity score"],
+  ["Chopan Kabob", "Afghan", "San Ramon / Concord", 58, 55, 68, "Multi-location Afghan kabob (San Ramon + Concord), has website — East Bay/suburbs reduce score"],
+  ["Ghazni Afghan Kabobs", "Afghan", "Hayward", 72, 62, 80, "Hayward Afghan, 1358 Yelp reviews, two locations, has website and catering — solid East Bay candidate"],
+
+  // MEDITERRANEAN / LEBANESE
+  ["Shish Grill", "Lebanese/Mediterranean", "San Ramon", 62, 60, 78, "San Ramon family-owned Lebanese halal, 992 reviews, Infatuation-reviewed — good performer, East Bay/Tri-Valley"],
+  ["Falafel Flame", "Mediterranean", "Concord", 55, 55, 62, "Multi-location Bay Area halal falafel chain, HFSAA certified, has website — Concord/East Bay base"],
+  ["Manakish Oven & Grill", "Lebanese/Mediterranean", "San Jose / Walnut Creek", 92, 55, 72, "SJ-based Lebanese, SF Chronicle Best, family-owned since 2019 — moderate digital gap, strong SB location"],
+  ["Shawarmaji", "Jordanian/Mediterranean", "Santa Clara / Oakland", 92, 58, 72, "Bay Area's only Jordanian shawarma, Santa Clara + Oakland, active IG — prime opportunity at SCC location"],
+  ["Sajj Mediterranean", "Mediterranean", "San Jose / Sunnyvale", 92, 68, 72, "Multi-SB-location halal Mediterranean chain (SJ, Sunnyvale, San Ramon, San Mateo) — chain-level web presence"],
+  ["Sumac", "Mediterranean", "San Francisco", 22, 62, 68, "SF halal modern Mediterranean, 311 reviews, has IG @sumac.sf — digital gap exists but SF-only limits priority"],
+  ["Beit Rima", "Palestinian/Arabic", "San Francisco", 22, 72, 82, "SF Palestinian comfort food, 1015 reviews, James Beard semi-finalist — exceptional restaurant, SF location limits us"],
+  ["Oasis Grill", "Middle Eastern/Mediterranean", "San Francisco", 22, 65, 75, "SF halal multi-location (3 SF spots), 1373 reviews, corporate catering focused — SF proximity kills score"],
+  ["Yafa Hummus", "Mediterranean", "Dublin", 62, 60, 72, "100% halal Mediterranean chain, Dublin + Tracy + Lodi, 1000+ reviews — Tri-Valley base, East Bay proximity"],
+  ["Cafe 220", "Mediterranean/Turkish", "Palo Alto", 95, 55, 72, "Palo Alto halal Mediterranean/Turkish since 2005, 547 reviews, has website — solid SB opportunity"],
+  ["Holy Land", "Middle Eastern/Mediterranean", "Santa Clara", 95, 45, 68, "Santa Clara halal Middle Eastern, 507 reviews, HFSAA certified — prime SB location with real digital gap"],
+
+  // CHINESE / HOT POT
+  ["Old Mandarin Islamic", "Chinese/Uyghur/Halal", "San Francisco", 20, 62, 78, "SF halal Chinese/Uyghur institution since 1997, 1096 reviews, has website — SF location limits priority"],
+  ["Lavender Hot Pot", "Chinese Hot Pot/Halal", "Fremont", 82, 45, 68, "Only dedicated halal hot pot in Bay Area (Fremont) — unique niche, limited digital presence, good opportunity"],
+
+  // BURMESE
+  ["Teni East Kitchen", "Burmese", "Oakland", 60, 65, 75, "Oakland Burmese, Michelin Guide-listed, 531 reviews, has website/IG — decent digital gap but East Bay limits score"],
+
+  // SOMALI / AFRICAN
+  ["Jubba", "Somali/African", "San Jose", 90, 55, 82, "SJ Somali institution, 1556 Yelp reviews, authentic halal — strong South Bay candidate with loyal community following"],
+  ["Rahma Mediterranean", "Somali/Mediterranean", "Dublin", 65, 42, 55, "Dublin halal market + grill (Rahma Mediterranean Market), 248 reviews — East Bay, modest digital presence"],
+
+  // NEPALESE / HIMALAYAN
+  ["The Everest Momo", "Nepalese/Himalayan", "Sunnyvale", 93, 52, 72, "Sunnyvale Nepalese momo, 647 reviews, halal certified, food trucks across South Bay — strong digital gap opportunity"],
+  ["California Momo Kitchen", "Nepalese/Himalayan", "Sunnyvale", 93, 40, 62, "Sunnyvale halal Nepalese, 210 reviews, has website — growing niche with solid digital gap"],
+  ["The Gurkha Kitchen", "Himalayan/Nepalese", "Sunnyvale / Hayward", 90, 55, 72, "Multi-location halal Himalayan (Sunnyvale + Hayward + San Ramon), has website — consistent SB presence"],
+
+  // INDIAN (UPSCALE / MODERN)
+  ["Ettan", "Indian/South Indian", "Palo Alto", 95, 78, 88, "Palo Alto Indian Michelin-noted, 1614 reviews, halal confirmed, strong IG — minimal digital gap, already well-established"],
+  ["Copra", "South Indian", "San Francisco", 22, 80, 82, "SF Michelin-noted South Indian, 766 reviews, halal confirmed, strong IG — exceptional restaurant, SF location limits us"],
+  ["Deccan Morsels", "Indian/Deccan", "Fremont / Sunnyvale", 90, 52, 65, "Multi-location Deccan cuisine chain (Fremont + Sunnyvale + Pleasanton), has website — solid candidate"],
+  ["Inchin's Bamboo Garden", "Indo-Chinese", "Sunnyvale / San Jose", 93, 72, 82, "100% halal Indo-Chinese chain, 1279 reviews, strong website and digital presence — limited gap for us"],
+
+  // PAKISTANI / INDIAN
+  ["New Tandoori Café", "Pakistani/Indian", "San Jose", 95, 38, 58, "SJ Pakistani family-run at Saratoga Ave, reopened recently, limited social/web — opportunity but modest performance"],
+  ["Shan Restaurant", "Pakistani/Indian", "Santa Clara", 95, 48, 65, "Santa Clara Pakistani multi-location, has website — real digital gap, strong SB location"],
+  ["Naan & Curry", "Indian/Pakistani", "San Jose / Bay Area", 90, 52, 72, "Bay Area chain (SJ + Oakland + SF), halal, 646 reviews SJ location, has website — moderate gap"],
+  ["Bundoo Khan", "Pakistani BBQ", "Fremont", 82, 55, 70, "Fremont location of original Karachi BBQ brand, 405 reviews, has website — moderate digital opportunity"],
+  ["Tayyibaat", "Pakistani/Afghan", "Milpitas", 95, 42, 68, "Milpitas halal pioneer since 1999, meat shop + grill, has website — limited social media presence"],
+  ["Lahori Restaurant", "Pakistani", "San Jose", 92, 42, 68, "SJ Pakistani with Dhaba-style cooking, 202 reviews, has website — real digital gap in a loyal community"],
+  ["Biryani Pointe", "Indian/Pakistani", "Milpitas", 95, 50, 65, "Milpitas halal biryani chain (Paradise Biryani Pointe), 239 reviews — moderate digital gap"],
+  ["Red Chilli", "Pakistani/Indian", "San Francisco", 22, 40, 65, "SF halal Pakistani on Jones St, 599 reviews, has website — SF location limits priority"],
+  ["Red Hot Chilli Pepper", "Halal/Multi-cuisine", "Fremont", 82, 55, 80, "Fremont halal powerhouse with 1322 Yelp reviews — strong performer but moderate digital presence"],
+  ["Chaat Corner", "Indian/Pakistani", "San Francisco", 22, 65, 78, "SF halal Indian/Pakistani, 1373 reviews, has website — very established but SF-only limits priority"],
+  ["Khyber Pass Kabob", "Afghan", "Dublin", 65, 52, 80, "Dublin Afghan, 1775 Yelp reviews, has website — strong East Bay performer in Tri-Valley"],
+
+  // BOSNIAN / EUROPEAN
+  ["Euro Grill", "Bosnian/Mediterranean", "Santa Clara", 95, 45, 68, "Santa Clara Bosnian halal, 472 reviews, has website — prime SB location with real digital gap, niche cuisine"],
+  ["Nursel", "Central Asian/Russian", "San Carlos", 48, 35, 62, "San Carlos Central Asian/Russian halal, 306 reviews — Peninsula location, very limited digital presence"],
+
+  // BENGALI
+  ["Labony's Kitchen", "Bengali/South Asian", "Sunnyvale", 93, 28, 48, "Sunnyvale Bengali halal home-kitchen and catering — very small operation, minimal digital presence"],
+
+  // BRAZILIAN
+  ["Gaucho Brazilian", "Brazilian/Halal", "San Ramon", 62, 42, 58, "San Ramon halal Brazilian steakhouse, Zabihah-certified — East Bay, limited digital presence"],
+
+  // ITALIAN / PIZZA / HALAL
+  ["Via Mia Pizza", "Italian/Pizza/Halal", "San Jose / Cupertino", 95, 65, 72, "SJ halal pizza chain, multiple SB locations (SJ Saratoga, Camden, Cupertino), 444+ reviews — moderate digital gap"],
+
+  // THAI / MALAY / HALAL
+  ["Basil Delight", "Thai/Malaysian/Halal", "Pleasanton", 60, 45, 65, "Pleasanton halal Thai/Malaysian, 420 reviews, unique niche — East Bay, limited digital presence, good opportunity"],
+
+  // INDIAN (PENINSULA)
+  ["Rasoi", "Indian/Pakistani", "Burlingame", 50, 55, 72, "Burlingame Indian/Pakistani fine dining, 813 reviews — Peninsula location, moderate digital presence"],
+
+  // SOUTH BAY MIDDLE EASTERN
+  ["786 Kabob House", "Afghan/Halal", "Danville / Newark", 58, 45, 62, "Afghan halal with Danville + Newark locations, 215 reviews, has website — East Bay/Tri-Valley base"],
+
+  // DESSERTS / BAKERIES / CAFES
+  ["Pints of Joy", "Desserts/Ice Cream", "Sunnyvale / Fremont", 93, 65, 78, "Sunnyvale halal eggless artisanal ice cream, 500+ Yelp reviews, has website + FB — South Bay prime location with Indian-inspired flavors"],
+  ["Koolfi Creamery", "Indian Desserts/Ice Cream", "San Leandro", 65, 60, 72, "San Leandro halal Indian ice cream (kulfi, falooda), 253 reviews, has website — East Bay location, moderate digital gap"],
+  ["Oklava Cafe", "Turkish Bakery/Desserts", "Palo Alto", 95, 60, 70, "Palo Alto Turkish bakery/baklava/coffee, 279 reviews, has website — prime South Bay location, niche dessert offering"],
+  ["Elaichi Co.", "South Asian Cafe/Desserts", "Berkeley", 62, 52, 65, "Berkeley Pakistani-inspired chai/coffee/cardamom bun cafe, 234 Yelp reviews, has IG — East Bay, unique South Asian niche"],
+  ["Damask Rose Coffee", "Palestinian Cafe/Desserts", "Oakland", 62, 48, 70, "Oakland Palestinian-owned Syrian desserts/coffee (since 2022), 232 Yelp reviews, has website damaskrose.us — East Bay community staple"],
+  ["Levant Dessert", "Middle Eastern Desserts", "Menlo Park", 52, 52, 62, "Menlo Park Middle Eastern desserts, 172 reviews — Peninsula location, moderate digital presence, niche offering"],
+  ["Haraz Coffee House", "Yemeni Coffee/Desserts", "San Francisco", 22, 65, 70, "SF Yemeni qahwa/coffee house, 267 reviews, active IG — well-established, SF-only limits South Bay priority"],
+  ["Cafe Da Fonk!", "Halal Cafe/Desserts", "Oakland", 62, 40, 45, "Oakland halal cafe with dessert focus, early-stage (12 reviews) — East Bay, very limited digital presence, small operation"],
+
+  // HOME BAKERS / COTTAGE FOOD (Bay Area Halal Desserts)
+  ["Desserts & Delights by Sonia", "Desserts/Bakery", "Bay Area", 78, 28, 45, "Bay Area halal home baker — cottage food, Instagram-only, very limited web presence — high digital gap opportunity"],
+  ["A Sweeter Bay by Nada", "Desserts/Bakery", "Bay Area", 78, 25, 42, "Bay Area halal cottage baker, Instagram-based — minimal digital presence, niche community following"],
+  ["Dash", "Desserts/Bakery", "Bay Area", 78, 22, 40, "Bay Area halal home baker — very limited digital presence, cottage food operation"],
+  ["Kettle", "Desserts/Bakery", "Bay Area", 78, 22, 40, "Bay Area halal desserts cottage business — Instagram-only, minimal web footprint"],
+  ["Shellys", "Desserts/Bakery", "Bay Area", 78, 25, 42, "Bay Area halal home baker — cottage food, Instagram presence, no website"],
+  ["Nirvanaah", "South Asian Desserts", "Bay Area", 80, 28, 45, "Bay Area halal South Asian desserts cottage business — community-focused, Instagram-based"],
+  ["Rangoli", "South Asian Desserts", "Bay Area", 80, 28, 45, "Bay Area halal South Asian desserts cottage bakery — Instagram-based, limited web presence"],
+  ["Layers By Lami", "Desserts/Bakery", "Bay Area", 78, 30, 48, "Bay Area halal home baker specializing in layered cakes/desserts — Instagram-based, growing community following"],
+  ["Shama Khan Sweet Kakes", "Desserts/Bakery", "Bay Area", 78, 28, 45, "Bay Area halal home baker — Instagram-only cottage bakery, limited digital footprint"],
+  ["Salted Rose Bakery", "Desserts/Bakery", "Bay Area", 80, 32, 50, "Bay Area halal bakery — more established cottage food presence, active Instagram community"],
+  ["The Salty Sisters", "Desserts/Bakery", "Bay Area", 78, 28, 45, "Bay Area halal desserts cottage business — sister-operated, Instagram-based, niche community"],
+  ["From Fayeeza", "Desserts/Bakery", "Bay Area", 78, 25, 42, "Bay Area halal home baker — cottage food, Instagram-only, very limited online presence"],
+  ["Saba Ali", "Desserts/Bakery", "Bay Area", 78, 22, 40, "Bay Area halal home baker — cottage food operation, Instagram-based"],
+  ["zbakes9", "Desserts/Bakery", "Bay Area", 78, 20, 38, "Bay Area halal home baker — very limited digital presence, Instagram-only account"],
+  ["Baked by Mariam", "Desserts/Bakery", "Bay Area", 80, 28, 45, "Bay Area halal home bakery — active Instagram, cottage food, growing following"],
+  ["Momal Salim", "Desserts/Bakery", "Bay Area", 78, 22, 40, "Bay Area halal home baker — cottage food, Instagram-based, minimal web presence"],
+  ["Panwaari Natures Delights", "South Asian Desserts", "Bay Area", 80, 25, 42, "Bay Area halal South Asian specialty desserts — cottage business, Instagram-only, niche mithai-style offering"],
+  ["Cinnabeenz", "Desserts/Bakery", "Bay Area", 78, 28, 48, "Bay Area halal cinnamon roll/pastry cottage business — Instagram-based, niche sweet product"],
+  ["La' Jawab Treats", "Desserts/Bakery", "Bay Area", 80, 25, 45, "Bay Area halal home baker — Urdu/South Asian inspired treats, Instagram-based, community following"],
+  ["israxtoobasweets", "Desserts/Bakery", "Bay Area", 78, 20, 38, "Bay Area halal home baker — Instagram-only, very limited web presence"],
+  ["Home Sweet Home", "Desserts/Bakery", "Bay Area", 78, 22, 40, "Bay Area halal home baker — cottage food operation, Instagram-based"],
+  ["Saneea Creates", "Desserts/Bakery", "Bay Area", 78, 25, 42, "Bay Area halal home baker — cottage food, Instagram-based, creative dessert designs"],
+  ["Samira Haikal", "Desserts/Bakery", "Bay Area", 78, 22, 40, "Bay Area halal home baker — cottage food, very limited digital presence"],
+  ["Delah", "Desserts/Bakery", "Bay Area", 78, 22, 40, "Bay Area halal home baker — cottage food, Instagram-only"],
+  ["Sama", "Desserts/Bakery", "Bay Area", 78, 22, 40, "Bay Area halal home baker — cottage food operation, Instagram-based"],
+  ["Sanaa", "Desserts/Bakery", "Bay Area", 78, 22, 40, "Bay Area halal home baker — cottage food operation, Instagram-based"],
 ];
 
 const tierConfig = {

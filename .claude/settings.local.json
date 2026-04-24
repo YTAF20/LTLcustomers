@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(npm run *)",
+      "PowerShell(head -30)",
+      "PowerShell($env:PATH)",
+      "PowerShell(Test-Path \"C:\\\\Program Files\\\\nodejs\\\\node.exe\"; Test-Path \"C:\\\\Program Files\\\\nodejs\\\\npm.cmd\"; Test-Path \"$env:LOCALAPPDATA\\\\nvm\\\\nvm.exe\")",
+      "PowerShell(& \"c:\\\\Users\\\\akifa\\\\OneDrive\\\\Documents\\\\GitHub\\\\LTLcustomers\\\\node_modules\\\\.bin\\\\vite.cmd\" --help 2>&1)",
+      "PowerShell($possible = @\\(\"C:\\\\Program Files\\\\nodejs\\\\npm.cmd\", \"C:\\\\Program Files\\\\nodejs\\\\npm\", \"$env:APPDATA\\\\npm\\\\npm.cmd\"\\); foreach \\($p in $possible\\) { if \\(Test-Path $p\\) { Write-Host \"FOUND: $p\" } })",
+      "PowerShell($env:PATH = \"C:\\\\Program Files\\\\nodejs;\" + $env:PATH; cd \"c:\\\\Users\\\\akifa\\\\OneDrive\\\\Documents\\\\GitHub\\\\LTLcustomers\"; npm install)",
+      "PowerShell($env:PATH = \"C:\\\\Program Files\\\\nodejs;\" + $env:PATH; cd \"c:\\\\Users\\\\akifa\\\\OneDrive\\\\Documents\\\\GitHub\\\\LTLcustomers\"; & \"C:\\\\Program Files\\\\nodejs\\\\npm.cmd\" install)",
+      "PowerShell($env:PATH = \"C:\\\\Program Files\\\\nodejs;\" + $env:PATH; cd \"c:\\\\Users\\\\akifa\\\\OneDrive\\\\Documents\\\\GitHub\\\\LTLcustomers\"; & \"C:\\\\Program Files\\\\nodejs\\\\npm.cmd\" run dev)"
+    ]
+  }
+}
