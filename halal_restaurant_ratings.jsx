@@ -189,11 +189,11 @@ const tierConfig = {
   3: { label: "Lower Opportunity", color: "#ef4444", bg: "rgba(239,68,68,0.10)", border: "rgba(239,68,68,0.35)" },
 };
 
-function computeRestaurant({ id, name, cuisine, location, proximity, webStrength, performance, notes }) {
+function computeRestaurant({ id, name, cuisine, location, proximity, webStrength, performance, notes, llc }) {
   const digitalGap = 100 - webStrength;
   const score = Math.round((proximity * 0.35) + (performance * 0.30) + (digitalGap * 0.35));
   const tier = score >= 72 ? 1 : score >= 55 ? 2 : 3;
-  return { id, name, cuisine, location, proximity, webStrength, digitalGap, performance, score, notes, tier };
+  return { id, name, cuisine, location, proximity, webStrength, digitalGap, performance, score, notes, llc: llc || "", tier };
 }
 
 let _uid = 0;
@@ -244,12 +244,12 @@ function SliderField({ label, value, onChange, hint, color }) {
 
 function RestaurantModal({ initial, onSave, onClose }) {
   const toForm = r => r ? {
-    name: r.name, cuisine: r.cuisine, location: r.location,
+    name: r.name, cuisine: r.cuisine, location: r.location, llc: r.llc || "",
     proximity: Math.max(1, Math.min(10, Math.round(r.proximity / 10))),
     webStrength: Math.max(1, Math.min(10, Math.round(r.webStrength / 10))),
     performance: Math.max(1, Math.min(10, Math.round(r.performance / 10))),
     notes: r.notes || ""
-  } : { name: "", cuisine: "", location: "", proximity: 5, webStrength: 5, performance: 5, notes: "" };
+  } : { name: "", cuisine: "", location: "", llc: "", proximity: 5, webStrength: 5, performance: 5, notes: "" };
 
   const [form, setForm] = useState(() => toForm(initial));
   const set = k => v => setForm(f => ({ ...f, [k]: v }));
@@ -308,6 +308,10 @@ function RestaurantModal({ initial, onSave, onClose }) {
           <div>
             <label style={{ fontSize: 12, color: "rgba(255,255,255,0.5)", display: "block", marginBottom: 4 }}>Location</label>
             <input value={form.location} onChange={setStr("location")} placeholder="e.g. West San Jose" style={inputStyle} />
+          </div>
+          <div style={{ gridColumn: "1 / -1" }}>
+            <label style={{ fontSize: 12, color: "rgba(255,255,255,0.5)", display: "block", marginBottom: 4 }}>LLC / Legal Business Name</label>
+            <input value={form.llc} onChange={setStr("llc")} placeholder="e.g. Gulzaar Restaurant LLC" style={inputStyle} />
           </div>
         </div>
 
@@ -373,6 +377,7 @@ function RestaurantModal({ initial, onSave, onClose }) {
               if (!valid) return;
               onSave({
                 name: form.name.trim(), cuisine: form.cuisine.trim(), location: form.location.trim(),
+                llc: form.llc.trim(),
                 proximity: form.proximity * 10, webStrength: form.webStrength * 10,
                 performance: form.performance * 10, notes: form.notes.trim()
               });
@@ -397,6 +402,7 @@ export default function App() {
   const [sortBy, setSortBy] = useState("score");
   const [expandedId, setExpandedId] = useState(null);
   const [modal, setModal] = useState(null);
+  const [deleteConfirm, setDeleteConfirm] = useState(null);
   const uidRef = useRef(_uid);
 
   const filtered = useMemo(() => {
@@ -428,8 +434,13 @@ export default function App() {
 
   const handleDelete = (id, e) => {
     e.stopPropagation();
-    setRestaurantList(prev => prev.filter(r => r.id !== id));
-    if (expandedId === id) setExpandedId(null);
+    setDeleteConfirm(id);
+  };
+
+  const confirmDelete = () => {
+    setRestaurantList(prev => prev.filter(r => r.id !== deleteConfirm));
+    if (expandedId === deleteConfirm) setExpandedId(null);
+    setDeleteConfirm(null);
   };
 
   const handleEdit = (restaurant, e) => {
@@ -600,9 +611,18 @@ export default function App() {
               {isExpanded && (
                 <div style={{
                   marginTop: 12, paddingTop: 12, borderTop: "1px solid rgba(255,255,255,0.07)",
-                  fontSize: 12, color: "rgba(255,255,255,0.55)", lineHeight: 1.6
+                  fontSize: 12, color: "rgba(255,255,255,0.55)", lineHeight: 1.6,
+                  display: "flex", flexDirection: "column", gap: 6
                 }}>
-                  <strong style={{ color: "rgba(255,255,255,0.75)" }}>Analysis: </strong>{r.notes || "No notes added."}
+                  {r.llc && (
+                    <div>
+                      <strong style={{ color: "rgba(255,255,255,0.75)" }}>LLC: </strong>
+                      <span style={{ color: "#60a5fa" }}>{r.llc}</span>
+                    </div>
+                  )}
+                  <div>
+                    <strong style={{ color: "rgba(255,255,255,0.75)" }}>Analysis: </strong>{r.notes || "No notes added."}
+                  </div>
                 </div>
               )}
             </div>
@@ -630,6 +650,53 @@ export default function App() {
           onClose={() => setModal(null)}
         />
       )}
+
+      {deleteConfirm && (() => {
+        const target = restaurantList.find(r => r.id === deleteConfirm);
+        return (
+          <div
+            onClick={() => setDeleteConfirm(null)}
+            style={{
+              position: "fixed", inset: 0, background: "rgba(0,0,0,0.75)", backdropFilter: "blur(4px)",
+              display: "flex", alignItems: "center", justifyContent: "center", zIndex: 1000, padding: 20
+            }}
+          >
+            <div
+              onClick={e => e.stopPropagation()}
+              style={{
+                background: "#111827", border: "1px solid rgba(239,68,68,0.3)", borderRadius: 14,
+                padding: "28px 32px", maxWidth: 380, width: "100%", textAlign: "center",
+                boxShadow: "0 25px 60px rgba(0,0,0,0.6)"
+              }}
+            >
+              <div style={{ fontSize: 15, fontWeight: 600, color: "#f0f0f0", marginBottom: 8 }}>
+                Delete this entry?
+              </div>
+              <div style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", marginBottom: 24, lineHeight: 1.6 }}>
+                Are you sure you want to delete{" "}
+                <strong style={{ color: "#f0f0f0" }}>{target?.name}</strong>?
+                {" "}This cannot be undone.
+              </div>
+              <div style={{ display: "flex", gap: 10, justifyContent: "center" }}>
+                <button
+                  onClick={() => setDeleteConfirm(null)}
+                  style={{
+                    background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)",
+                    borderRadius: 8, color: "rgba(255,255,255,0.6)", padding: "9px 24px", fontSize: 13, cursor: "pointer"
+                  }}
+                >Cancel</button>
+                <button
+                  onClick={confirmDelete}
+                  style={{
+                    background: "#ef4444", border: "none", borderRadius: 8,
+                    color: "#fff", padding: "9px 24px", fontSize: 13, fontWeight: 600, cursor: "pointer"
+                  }}
+                >Delete</button>
+              </div>
+            </div>
+          </div>
+        );
+      })()}
     </div>
   );
 }
